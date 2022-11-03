@@ -1,0 +1,63 @@
+---
+import type { IElement, MDXInstance, Post } from "@/types";
+import { getLocaleTime } from "@/util";
+export interface Props extends IElement {
+  post: MDXInstance<Post>;
+  withDesc?: boolean;
+}
+
+const { post, as: Element = "div", withDesc = false } = Astro.props as Props;
+const { publishDate } = post.frontmatter;
+const date = new Date(publishDate);
+const datetime = date.toISOString();
+const postDate = getLocaleTime(date, { month: "short" });
+---
+
+<Element>
+  <hr class="divider" />
+  <article>
+    <span
+      class="flex flex-col sm:gap-y-2 md:flex-row md:items-center md:gap-y-0 mt-3"
+    >
+      <time {datetime} class="pr-2 articleDate">{postDate}</time>
+      <span class="sm:text-[16px]">•</span>
+      {
+        post.frontmatter.tags?.length && (
+          <div class="flex items-center md:pl-2">
+            <ul class="flex items-center gap-x-2">
+              {post.frontmatter.tags.map((tag) => (
+                <li>
+                  <a
+                    class="hover:text-textColor sm:text-titleColor sm:text-[16px]"
+                    aria-label={`View more blogs with the tag ${tag}`}
+                    href={`/tags/${tag}`}
+                  >
+                    &#35;{tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </span>
+    <h1 class="articleTitlePreview sm:hover:text-textColor text-titleColor">
+      <a class="inline-block" href={post.url}>
+        {post.frontmatter.title}
+      </a>
+    </h1>
+
+    <p class="mt-3 descriptionInsideArticle">{post.frontmatter.description}</p>
+  </article>
+
+  <!-- <div
+		class="mt-12 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none"
+	>
+		<slot />
+	</div> -->
+</Element>
+<!-- {
+	withDesc && (
+		<q class="line-clamp-3 block italic">{post.frontmatter.description}</q>
+	)
+} -->

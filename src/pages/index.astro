@@ -1,81 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Base.astro";
+import Icons from "../components/Icons.astro";
+
+const url = new URL(Astro.request.url);
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="Welcome Page">
+  <section>
+    <span
+      class="tracking-[0.005erm] leading-[144%] text-[34px] sm:text-[38px] md:text-[48px] lg:text-[58px] text-titleColor font-bold"
+    >
+      Product manager developing businesses and creating his own.
+    </span>
+    <div class="mt-[63px]">
+      <p class="leading-[228%] mb-[40px] font-bold text-[16px] sm:text-[18px]">
+        I’m Mike, Product Manager and former developer with <span
+          class="highlightText">5+ years of experience in IT</span
+        >. I’m focusing on <span class="highlightText">developing startups</span
+        > and <span class="highlightText">consulting</span>
+        small teams about on processes.
+      </p>
+      <p class="leading-[228%] font-bold text-[16px] sm:text-[18px]">
+        Right now I’m working in <span class="highlightText">Mine’d</span> startup
+        as a Product Manager of cusomer mobile web app and also as a management consultant
+        in Web3 dapp - <span class="highlightText">zkBob</span>. Before that, I
+        worked in Canadian q-commerce startup <span class="highlightText"
+          >Tiggy</span
+        > and in AI-based style transfer <span class="highlightText"
+          >Prisma app</span
+        >. Moreover, I launched my own products: <span class="highlightText"
+          >B2C mobile app</span
+        > and <span class="highlightText">B2B financial SaaS platform</span>.
+      </p>
+    </div>
+    <div class="flex gap-[36px] mt-[63px]">
+      <Icons />
+      <a href="/projects" aria-current={url.pathname === "/" ? "page" : false}>
+        <button class="projectsBtnContainer px-5 py-2.5">
+          <div class="text-[14px] font-bold">Projects →</div>
+        </button>
+      </a>
+    </div>
+  </section>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>

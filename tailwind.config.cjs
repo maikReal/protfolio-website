@@ -2,7 +2,21 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'mono': ['MonoLisa'],
+			},
+			colors: {
+				bgColor: "#111111",
+				textColor: "#999999",
+				highlight: "#E4E4E4",
+				titleColor: "#FFFFFF",
+				accent: "#FFFFFF",
+			}
+			
+		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }

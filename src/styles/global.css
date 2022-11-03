@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    :root {
+		--theme-bg: "#111111";
+		--theme-text: "#999999";
+        --theme-highlight: "#E4E4E4";
+        --theme-title: "#FFFFFF";
+		--theme-accent: "#FFFFFF";
+	}
+
+    html {
+		@apply h-full border-t-2 border-textColor scroll-smooth;
+	}
+    
+    html body {
+        @apply h-full max-w-[85%] md:max-w-[75%] lg:max-w-[70%] xl:max-w-[58%] mx-auto pt-11 font-mono font-normal antialiased text-sm flex flex-col text-textColor bg-bgColor; /*  px-8  max-w-[60%] */
+    }
+}
+
+@font-face {
+	font-family: "MonoLisa";
+	font-weight: 400;
+	src: url("../fonts/MonoLisa-Regular.ttf") format('truetype');
+}
+
+@font-face {
+	font-family: "MonoLisa";
+	font-weight: 700;
+	src: url("../fonts/MonoLisa-Bold.ttf") format('truetype');
+}
+
+
+
+@layer components {
+    svg {
+        fill: #999999;
+    }
+
+    svg:hover {
+        fill: #E4E4E4;
+    }
+
+    .overviewPoints {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .iconsContainer {
+        display: flex;
+        justify-content: flex-start;
+        gap: 11px;
+    }
+
+    /* .iconBtnContainer {
+        display: flex;
+        gap: 36px;
+    } */
+
+    .textprojectsBtn {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .projectsBtnContainer {
+        border: 1px solid #E4E4E4;
+        border-radius: 25px;
+        box-sizing: border-box;
+        color: #E4E4E4;
+    }
+    .projectsBtnContainer:hover {
+        background: #E4E4E4;
+        color: #111111;
+    }
+
+    .projectsBtn {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .projectsPageMainDiv {
+        margin-top: 45px;
+    }
+
+    .subtitleProjectsMain {
+        font-size: 18px;
+        line-height: 228.5%;
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+
+    .projectCardContainer {
+        background: #1D1D1E;
+        border-radius: 12px;
+        margin-top: 98px;
+        padding: 51px 60px 51px 60px;
+    }
+
+    .projectDescriptionContainer {
+        display: flex;
+        /* flex-wrap: wrap; Only for small size devices  */
+        column-gap: 165px;
+        margin-bottom: 97px;
+    }
+
+    .projectTitle {
+        display: flex;
+        flex-direction: column;
+        min-width: 215px;
+    }
+
+    .projectTextDescription {
+        font-size: 16px;
+        line-height: 200%;
+        font-weight: 700;
+    }
+    
+    .projectDate {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 200%;
+        color: #999999;
+    }
+
+    .projectName {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 144%;
+        letter-spacing: 0.005em;
+        color: #FFFFFF;
+    }
+
+    .projectImage {
+        max-height: 567px;
+        object-fit: cover;
+        margin: auto;
+    }
+
+    .highlightText {
+        color: #E4E4E4;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        
+    }
+
+    .projectImageContainer {
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        /* gap: auto; */
+        /* overflow-x: scroll; */
+        
+    }
+
+    /* .projectImageContainer::-webkit-scrollbar {
+        display: none;
+      } */
+
+    .divider {
+        margin-bottom: 50px;
+        border: 1px solid #333333;
+    }
+
+    .articlesTitle {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 144%;
+        letter-spacing: 0.005em;
+        color: #FFFFFF;
+    }
+
+    .articleDate {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #999999;
+    }
+
+    .articleTitlePreview {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 144%;
+        letter-spacing: 0.005em;
+    }
+
+    .articlePageTitle {
+        text-align: center;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 144%;
+        letter-spacing: 0.005em;
+    }
+
+    .tagListTitles {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 144%;
+        letter-spacing: 0.005em;
+    }
+
+    .tagBtn {
+        border: 1px solid #FFFFFF;
+        border-radius: 15px;
+    }
+
+    .tagBtn:hover {
+        border: 1px solid #999999;
+    }
+
+    .tagBtnContent {
+        padding: 4px 14px 4px 14px;
+    }
+
+    .descriptionInsideArticle {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 200%;
+    }
+
+    .articleMainImg {
+        border-radius: 10px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .projectDescriptionContainer {
+        flex-wrap: wrap
+    }
+  }

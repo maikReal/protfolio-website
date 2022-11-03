@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Base.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const projects = [
+  {
+    company: "zkBob",
+    date: "AUG 2022 - TODAY",
+    description:
+      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+    link: "https://www.zkbob.com/",
+    images: ["src/assets/zkBob/zkBob.png"],
+  },
+  {
+    company: "Tiggy",
+    date: "FEB 2022 - AUG 2022",
+    description:
+      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+    link: "https://www.instagram.com/tiggyapp/",
+    images: [
+      "src/assets/TiggyProject/Tiggy1.png",
+      "src/assets/TiggyProject/Tiggy2.png",
+      // "src/assets/TiggyProject/Tiggy3.png",
+    ],
+  },
+  {
+    company: "RareKoalas",
+    date: "JUNE 2022 - AUG 2022",
+    description:
+      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+    link: "https://maikreal.github.io/rare-koalas/",
+    images: ["src/assets/Koalas/Koalas.png"],
+  },
+  {
+    company: "Prisma",
+    date: "MAY 2021 - MARCH 2022",
+    description:
+      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+    link: "https://prisma-ai.com/prisma",
+    images: [
+      "src/assets/PrismaProject/Prisma1.png",
+      "src/assets/PrismaProject/Prisma2.png",
+      "src/assets/PrismaProject/Prisma3.png",
+    ],
+  },
+  {
+    company: "Garanite",
+    date: "SEP 2020 - JUNE 2021",
+    description:
+      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+    link: "https://apps.apple.com/ru/app/garantie/id1541365758?l=en",
+    images: [
+      "src/assets/GarantieProject/Garantie1.png",
+      "src/assets/GarantieProject/Garantie2.png",
+      "src/assets/GarantieProject/Garantie3.png",
+    ],
+  },
+];
+---
+
+<Layout title="Projects">
+  <section>
+    <h1 class="titleMain">Projects</h1>
+    <div class="projectsPageMainDiv">
+      <p class="subtitleProjectsMain">
+        You will find all projects where I took part either as a product manager
+        or as a founder of my own products. You can also find more detailed
+        information in my CV. You can download it below.
+      </p>
+    </div>
+    <button class="projectsBtnContainer px-5 py-2.5">
+      <div class="projectsBtn">Download CV →</div>
+    </button>
+  </section>
+  {
+    projects.map((project) => (
+      <ProjectCard
+        company={project.company}
+        date={project.date}
+        description={project.description}
+        link={project.link}
+        images={project.images}
+      />
+    ))
+  }
+</Layout>

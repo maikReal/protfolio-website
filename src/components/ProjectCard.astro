@@ -1,0 +1,25 @@
+---
+const { company, date, description, link, images } = Astro.props;
+
+// console.log()
+---
+
+<div class="projectCardContainer">
+  <div class="projectDescriptionContainer">
+    <div class="projectTitle">
+      <div class="projectDate">{date}</div>
+      <div class="projectName">{company}</div>
+    </div>
+    <div>
+      <p set:html={description} class="mb-5 projectTextDescription"></p>
+      <a href={link}>
+        <button class="projectsBtnContainer px-8 py-2">
+          <div class="textprojectsBtn">Website →</div>
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="projectImageContainer">
+    {images?.map((img: string) => <img class="projectImage" src={img} />)}
+  </div>
+</div>

@@ -1,0 +1,78 @@
+---
+import Layout from "./Base.astro";
+import { getLocaleTime, getPreviousAndNextPosts, sortMDByDate } from "src/util";
+import Paginator from "@/components/Paginator";
+import type { Post } from "@/types";
+
+const {
+  content: { title, description, publishDate, tags },
+  headings,
+} = Astro.props;
+const date = new Date(publishDate);
+const datetime = date.toISOString();
+const postDate = getLocaleTime(date);
+const currentPage = new URL(Astro.request.url).pathname;
+const allPosts = await Astro.glob<Post>("../pages/articles/*.mdx");
+const allSortedPosts = sortMDByDate(allPosts);
+const { prev, next } = getPreviousAndNextPosts(currentPage, allSortedPosts);
+const paginationProps = {
+  ...(prev && {
+    prevUrl: {
+      url: prev.url,
+      text: `← ${prev.frontmatter.title}`,
+      srLabel: " Previous Article:",
+    },
+  }),
+  ...(next && {
+    nextUrl: {
+      url: next.url,
+      text: `${next.frontmatter.title} →`,
+      srLabel: "Next Article:",
+    },
+  }),
+};
+---
+
+<Layout title="Article">
+  <div class="sm:grid sm:gap-x-10 sm:items-start">
+    <article>
+      <span
+        class="flex flex-col justify-center sm:gap-y-2 md:flex-row md:items-center md:gap-y-0"
+      >
+        <time {datetime} class="pr-2 articleDate">{postDate}</time>
+        <span class="sm:text-[16px]">•</span>
+        {
+          tags?.length && (
+            <div class="flex items-center md:pl-2">
+              <ul class="flex items-center gap-x-2">
+                {tags.map((tag) => (
+                  <li>
+                    <a
+                      class="hover:text-textColor sm:text-titleColor sm:text-[16px]"
+                      aria-label={`View more blogs with the tag ${tag}`}
+                      href={`/tags/${tag}`}
+                    >
+                      <button class="tagBtn">
+                        <div class="tagBtnContent">{tag}</div>
+                      </button>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </span>
+      <h1 class="articlePageTitle">{title}</h1>
+      <p class="mt-8 sm:descriptionInsideArticle">{description}</p>
+      <div
+        class="mt-12 max-w-none prose prose-neutral dark:prose-invert sm:prose-sm lg:prose-lg prose-headings:text-titleColor prose-headings:font-bold text-textColor prose-headings:before:text-techColor prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none"
+      >
+        <slot />
+      </div>
+    </article>
+  </div>
+  <div class="mt-24">
+    <Paginator {...paginationProps} />
+  </div>
+</Layout>
