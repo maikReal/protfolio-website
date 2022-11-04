@@ -7,9 +7,9 @@ const projects = [
     company: "zkBob",
     date: "AUG 2022 - TODAY",
     description:
-      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+      'As a product consultant, I <span class="highlightText">established processes</span> inside the zkBob product team for different verticals and <span class="highlightText">helped to release MVP</span>. I conducted User Research to identify user needs for developing the product roadmap and strategy. As a result, we <span class="highlightText">increased the number of new users by 20%</span> after the initial launch!',
     link: "https://www.zkbob.com/",
-    images: ["src/assets/zkBob/zkBob.png"],
+    images: ["static/zkBob/zkBob.png"],
   },
   {
     company: "Tiggy",
@@ -18,41 +18,40 @@ const projects = [
       'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
     link: "https://www.instagram.com/tiggyapp/",
     images: [
-      "src/assets/TiggyProject/Tiggy1.png",
-      "src/assets/TiggyProject/Tiggy2.png",
-      // "src/assets/TiggyProject/Tiggy3.png",
+      "static/TiggyProject/Tiggy1.png",
+      "static/TiggyProject/Tiggy2.png",
     ],
   },
   {
-    company: "RareKoalas",
+    company: "Web3  Koalas",
     date: "JUNE 2022 - AUG 2022",
     description:
-      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+      'The project\'s goal was to draw attention to the problem of the extinction of koalas and raise funds for organizations fighting the problem. I <span class="highlightText">conceptualized the idea</span>, <span class="highlightText">supervised the process of building the collection</span>, and then <span class="highlightText">developed the website for the NFT minting</span>.',
     link: "https://maikreal.github.io/rare-koalas/",
-    images: ["src/assets/Koalas/Koalas.png"],
+    images: ["static/Koalas/Koalas.png"],
   },
   {
     company: "Prisma",
     date: "MAY 2021 - MARCH 2022",
     description:
-      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+      'I <span class="highlightText">led a product monetization team</span> whose main goal was to find ways to increase revenue by changing approaches to the current business model. As a result, I <span class="highlightText">increased revenue and ARPU by 20%</span> by testing and integrating new monetization approaches and mechanics',
     link: "https://prisma-ai.com/prisma",
     images: [
-      "src/assets/PrismaProject/Prisma1.png",
-      "src/assets/PrismaProject/Prisma2.png",
-      "src/assets/PrismaProject/Prisma3.png",
+      "static/PrismaProject/Prisma1.png",
+      "static/PrismaProject/Prisma2.png",
+      "static/PrismaProject/Prisma3.png",
     ],
   },
   {
-    company: "Garanite",
+    company: "Garantie",
     date: "SEP 2020 - JUNE 2021",
     description:
-      'I led a UX/UI and cross-functional teams as well as product manager to deliver new functionalities to market. As a result, I increased <span class="highlightText">AOV by 20%</span> and <span class="highlightText">Revenue by 14%</span>. By conducting A/B experiments we raised <span class="highlightText">User Activation by 7%</span>.',
+      'I raised money to create an app to store warranty information about the electronic devices that a user purchased. I assembled technical, design, and marketing specialists that helped me launch the app to market. I\'ve <span class="highlightText">integrated Agile processes</span> inside the team and <span class="highlightText">developed product strategy and roadmap</span> that helped us to achieve all goals.',
     link: "https://apps.apple.com/ru/app/garantie/id1541365758?l=en",
     images: [
-      "src/assets/GarantieProject/Garantie1.png",
-      "src/assets/GarantieProject/Garantie2.png",
-      "src/assets/GarantieProject/Garantie3.png",
+      "static/GarantieProject/Garantie1.png",
+      "static/GarantieProject/Garantie2.png",
+      "static/GarantieProject/Garantie3.png",
     ],
   },
 ];
@@ -60,17 +59,27 @@ const projects = [
 
 <Layout title="Projects">
   <section>
-    <h1 class="titleMain">Projects</h1>
-    <div class="projectsPageMainDiv">
-      <p class="subtitleProjectsMain">
+    <h1
+      class="tracking-[0.005erm] leading-[144%] text-[34px] sm:text-[40px] md:text-[48px] lg:text-[58px] text-titleColor font-bold"
+    >
+      Projects
+    </h1>
+    <div class="mt-[45px]">
+      <p
+        class="leading-[228%] mb-[50px] font-bold text-[16px] sm:text-[16px] md:text-[18px]"
+      >
         You will find all projects where I took part either as a product manager
         or as a founder of my own products. You can also find more detailed
         information in my CV. You can download it below.
       </p>
     </div>
-    <button class="projectsBtnContainer px-5 py-2.5">
-      <div class="projectsBtn">Download CV →</div>
-    </button>
+    <a href="static/General-CV.pdf" download="General-CV.pdf">
+      <button
+        class="border-[1px] border-[#E4E4E4] hover:bg-highlight text-titleColor hover:text-bgColor rounded-[25px] px-5 py-2.5"
+      >
+        <div class="text-[14px] font-bold">Download CV →</div>
+      </button>
+    </a>
   </section>
   {
     projects.map((project) => (

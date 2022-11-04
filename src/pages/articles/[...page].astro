@@ -35,16 +35,24 @@ const paginationProps = {
 };
 ---
 
-<Layout title="Article Previews">
-  <div class="grid sm:grid-cols-[3fr_1fr] sm:gap-x-20 gap-y-1">
-    <span class="sm:articlesTitle"> Articles</span>
-    <span class="mb-4 flex items-center sm:articlesTitle"> Tags</span>
+<Layout title="Articles">
+  <div class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-20 gap-y-1">
+    <span
+      class="font-bold text-titleColor tracking-[0.005erm] leading-[144%] text-[26px] sm:text-[32px]"
+    >
+      Articles</span
+    >
+    <span
+      class="invisible sm:visible mb-4 flex items-center tracking-[0.005erm] leading-[144%] text-[26px] sm:text-[32px] font-bold text-titleColor -mb-[20px] sm:mb-[0px]"
+    >
+      Tags</span
+    >
     <section aria-label="Blog post list">
       <ul class="text-left space-y-8">
         {
           page.data.map((p) => (
             <li class="[&_q]:w-full flex flex-wrap items-center gap-x-2">
-              <ArticlePreview post={p} as="h2" withDesc />
+              <ArticlePreview post={p} as="div" />
             </li>
           ))
         }
@@ -53,21 +61,23 @@ const paginationProps = {
     </section>
     {
       allTags.length && (
-        <aside>
-          <ul class="text-bgColor flex flex-wrap gap-2">
+        <aside class="invisible sm:visible">
+          <ul class="flex flex-wrap gap-2">
             {allTags.map((tag) => (
               <li>
                 <a
-                  class="bg-accent flex items-center justify-center rounded-lg p-1 tagListTitles"
+                  class="hover:text-titleColor text-textColor flex items-center justify-center p-1 font-bold tracking-[0.005erm] leading-[144%] text-[14px]"
                   href={`/tags/${tag}`}
                   aria-label={`View all posts with the tag: ${tag}`}
                 >
-                  <div class="tagBtnContent">{tag}</div>
+                  <button class="border-solid rounded-[15px] border-[1px] border-[#999999] hover:border-[#FFFFFF]">
+                    <div class="px-[10px] py-[4px]">{tag}</div>
+                  </button>
                 </a>
               </li>
             ))}
           </ul>
-          <span class="mt-4 block sm:text-right transition ease-in-out delay-50 hover:translate-x-1 hover:scale-100 duration-300">
+          <span class="mt-4 block sm:text-right sm:transition sm:ease-in-out sm:delay-50 sm:hover:translate-x-1 sm:hover:scale-100 sm:duration-300">
             <a
               class="sm:hover:text-accent"
               href="/tags"

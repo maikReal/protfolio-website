@@ -20,7 +20,8 @@ const paginationProps = {
     prevUrl: {
       url: prev.url,
       text: `← ${prev.frontmatter.title}`,
-      srLabel: " Previous Article:",
+      srLabel: "Previous Article:",
+      description: prev.frontmatter.description,
     },
   }),
   ...(next && {
@@ -28,19 +29,25 @@ const paginationProps = {
       url: next.url,
       text: `${next.frontmatter.title} →`,
       srLabel: "Next Article:",
+      description: next.frontmatter.description,
     },
   }),
 };
 ---
 
-<Layout title="Article">
+<Layout title={title}>
   <div class="sm:grid sm:gap-x-10 sm:items-start">
     <article>
       <span
-        class="flex flex-col justify-center sm:gap-y-2 md:flex-row md:items-center md:gap-y-0"
+        class="flex flex-col justify-center sm:gap-y-2 md:flex-row md:items-center md:gap-y-0 items-center"
       >
-        <time {datetime} class="pr-2 articleDate">{postDate}</time>
-        <span class="sm:text-[16px]">•</span>
+        <time {datetime} class="pr-2 text-[14px] leading-[16px] font-bold"
+          >{postDate}</time
+        >
+        <span
+          class="invisible md:visible -mt-[10px] sm:-mt-[20px] md:mt-[0px] sm:text-[16px]"
+          >•</span
+        >
         {
           tags?.length && (
             <div class="flex items-center md:pl-2">
@@ -48,12 +55,12 @@ const paginationProps = {
                 {tags.map((tag) => (
                   <li>
                     <a
-                      class="hover:text-textColor sm:text-titleColor sm:text-[16px]"
+                      class="hover:text-titleColor text-[14px] font-bold"
                       aria-label={`View more blogs with the tag ${tag}`}
                       href={`/tags/${tag}`}
                     >
-                      <button class="tagBtn">
-                        <div class="tagBtnContent">{tag}</div>
+                      <button class="border-solid rounded-[15px] border-[1px] border-[#999999] hover:border-[#FFFFFF]">
+                        <div class="px-[10px] py-[4px]">{tag}</div>
                       </button>
                     </a>
                   </li>
@@ -63,8 +70,14 @@ const paginationProps = {
           )
         }
       </span>
-      <h1 class="articlePageTitle">{title}</h1>
-      <p class="mt-8 sm:descriptionInsideArticle">{description}</p>
+      <h1
+        class="text-titleColor font-bold text-[40px] md:text-[45px] lg:text-[58px] tracking-[0.005erm] leading-[144%] text-center mt-[15px]"
+      >
+        {title}
+      </h1>
+      <!-- <p class="mt-8 text-[16px] leading-[200%]">
+        {description}
+      </p> -->
       <div
         class="mt-12 max-w-none prose prose-neutral dark:prose-invert sm:prose-sm lg:prose-lg prose-headings:text-titleColor prose-headings:font-bold text-textColor prose-headings:before:text-techColor prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none"
       >

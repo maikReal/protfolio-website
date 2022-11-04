@@ -2,26 +2,50 @@
 import type { PaginationLink } from "@/types";
 
 export interface Props {
-	prevUrl?: PaginationLink;
-	nextUrl?: PaginationLink;
+  prevUrl?: PaginationLink;
+  nextUrl?: PaginationLink;
 }
 
 const { prevUrl, nextUrl } = Astro.props as Props;
 ---
 
-{(prevUrl || nextUrl) && (
-	<nav class="flex items-center gap-x-4">
-		{prevUrl && (
-			<a class="mr-auto py-2 sm:hover:text-accent" href={prevUrl.url}>
-				{prevUrl.srLabel && <span class="sr-only">{prevUrl.srLabel}</span>}
-				{prevUrl.text ? prevUrl.text : "Previous"}
-			</a>
-		)}
-		{nextUrl && (
-			<a class="ml-auto py-2 sm:hover:text-accent" href={nextUrl.url}>
-				{nextUrl.srLabel && <span class="sr-only">{nextUrl.srLabel}</span>}
-				{nextUrl.text ? nextUrl.text : "Next"}
-			</a>
-		)}
-	</nav>
-)}
+{
+  (prevUrl || nextUrl) && (
+    <nav class="flex items-stretch gap-x-12">
+      <div class="max-w-[50%]">
+        {prevUrl && (
+          <a
+            class="mr-auto py-2 sm:hover:text-accent text-[16px] text-titleColor sm:text-textColor sm:hover:underline"
+            href={prevUrl.url}
+          >
+            {prevUrl.text ? prevUrl.text : <span class="">"Previous"</span>}
+            <br />
+            <br />
+          </a>
+        )}
+        {prevUrl && prevUrl.description && (
+          <span class="text-[14px]">
+            {prevUrl.description.slice(0, 100)}...
+          </span>
+        )}
+      </div>
+      <div class="max-w-[50%]">
+        {nextUrl && (
+          <a
+            class="ml-auto py-2 sm:hover:text-accent text-[16px] text-titleColor sm:text-textColor sm:hover:underline"
+            href={nextUrl.url}
+          >
+            {nextUrl.text ? nextUrl.text : "Next"}
+            <br />
+            <br />
+          </a>
+        )}
+        {nextUrl && nextUrl.description && (
+          <span class="text-[14px]">
+            {nextUrl.description.slice(0, 100)}...
+          </span>
+        )}
+      </div>
+    </nav>
+  )
+}

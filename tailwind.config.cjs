@@ -12,6 +12,7 @@ module.exports = {
 				highlight: "#E4E4E4",
 				titleColor: "#FFFFFF",
 				accent: "#FFFFFF",
+				cardBg: "#1D1D1D"
 			}
 			
 		},

@@ -1,25 +1,41 @@
 ---
 const { company, date, description, link, images } = Astro.props;
-
-// console.log()
 ---
 
-<div class="projectCardContainer">
-  <div class="projectDescriptionContainer">
-    <div class="projectTitle">
-      <div class="projectDate">{date}</div>
-      <div class="projectName">{company}</div>
+<div
+  class="bg-cardBg mt-[98px] py-[31px] sm:py-[41px] md:py-[45px] lg:py-[51px] px-[30px] sm:px-[35px] md:px-[45px] lg:px-[60px] rounded-[12px]"
+>
+  <div
+    class="flex flex-wrap sm:flex-nowrap gap-[25px] sm:gap-[15px] md:gap-[40px] lg:gap-[60px] xl:gap-[130px] mb-[57px] sm:mb-[67px]"
+  >
+    <div class="flex flex-col min-w-[215px]">
+      <div class="text-[14px] font-bold leading-[200%]">{date}</div>
+      <div
+        class="text-[40px] font-bold leading-[144%] tracking-[0.005erm] text-titleColor"
+      >
+        {company}
+      </div>
     </div>
     <div>
-      <p set:html={description} class="mb-5 projectTextDescription"></p>
+      <p
+        set:html={description}
+        class="mb-[25px] text-[14px] lg:text-[16px] font-bold leading-[200%]"
+      >
+      </p>
       <a href={link}>
-        <button class="projectsBtnContainer px-8 py-2">
-          <div class="textprojectsBtn">Website →</div>
+        <button
+          class="border-[1px] border-[#E4E4E4] hover:bg-highlight text-titleColor hover:text-bgColor rounded-[25px] px-8 py-2"
+        >
+          <div class="text-[14px] font-bold">Website →</div>
         </button>
       </a>
     </div>
   </div>
-  <div class="projectImageContainer">
-    {images?.map((img: string) => <img class="projectImage" src={img} />)}
+  <div class="flex flex-wrap justify-center gap-[20px]">
+    {
+      images?.map((img: string) => (
+        <img class="max-h-[567px] object-cover sm:m-auto" src={img} />
+      ))
+    }
   </div>
 </div>

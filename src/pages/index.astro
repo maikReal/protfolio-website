@@ -14,29 +14,33 @@ const url = new URL(Astro.request.url);
     </span>
     <div class="mt-[63px]">
       <p class="leading-[228%] mb-[40px] font-bold text-[16px] sm:text-[18px]">
-        I’m Mike, Product Manager and former developer with <span
+        I’m Mike, a Product Manager and former developer with <span
           class="highlightText">5+ years of experience in IT</span
         >. I’m focusing on <span class="highlightText">developing startups</span
         > and <span class="highlightText">consulting</span>
-        small teams about on processes.
+        small teams about processes.
       </p>
       <p class="leading-[228%] font-bold text-[16px] sm:text-[18px]">
-        Right now I’m working in <span class="highlightText">Mine’d</span> startup
-        as a Product Manager of cusomer mobile web app and also as a management consultant
+        Right now, I’m working in <span class="highlightText">Mine’d</span> startup
+        as a Product Manager of a customer mobile app and also as a management consultant
         in Web3 dapp - <span class="highlightText">zkBob</span>. Before that, I
-        worked in Canadian q-commerce startup <span class="highlightText"
+        worked in the Canadian q-commerce startup <span class="highlightText"
           >Tiggy</span
-        > and in AI-based style transfer <span class="highlightText"
-          >Prisma app</span
-        >. Moreover, I launched my own products: <span class="highlightText"
-          >B2C mobile app</span
-        > and <span class="highlightText">B2B financial SaaS platform</span>.
+        > and AI-based style transfer app – <span class="highlightText"
+          >Prisma</span
+        >. I was a founder and launched 2 products: <span class="highlightText"
+          >a B2C mobile app Garantie</span
+        > and <span class="highlightText"
+          >B2B financial SaaS platform for banks</span
+        >.
       </p>
     </div>
     <div class="flex gap-[36px] mt-[63px]">
       <Icons />
       <a href="/projects" aria-current={url.pathname === "/" ? "page" : false}>
-        <button class="projectsBtnContainer px-5 py-2.5">
+        <button
+          class="border-[1px] border-[#E4E4E4] hover:bg-highlight text-titleColor hover:text-bgColor rounded-[25px] px-5 py-2.5"
+        >
           <div class="text-[14px] font-bold">Projects →</div>
         </button>
       </a>
