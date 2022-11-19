@@ -17,7 +17,7 @@
 	}
     
     html body {
-        @apply h-full max-w-[85%] md:max-w-[75%] lg:max-w-[70%] xl:max-w-[58%] mx-auto pt-11 font-mono font-normal antialiased text-sm flex flex-col text-textColor bg-bgColor; /*  px-8  max-w-[60%] */
+        @apply h-full max-w-[85%] md:max-w-[75%] lg:max-w-[70%] xl:max-w-[58%] mx-auto pt-8 font-mono font-normal antialiased text-sm flex flex-col text-textColor bg-bgColor; /*  px-8  max-w-[60%] */
     }
 }
 
